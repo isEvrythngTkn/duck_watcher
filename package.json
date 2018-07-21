@@ -17,5 +17,8 @@
     "deploy": "aws s3 sync build/ s3://duckwatcher",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.4.1"
   }
 }
