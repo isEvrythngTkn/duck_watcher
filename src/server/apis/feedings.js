@@ -1,8 +1,15 @@
-var { Feeding }= require('../models/Feeding');
+var { Feeding } = require('../models/Feeding');
+var { formatResponse } = require('./utils');
 
-const createFeeding = (values) => {
+const createFeeding = async (values) => {
   let feeding = new Feeding(values);
-  console.log('here is a feeding', feeding);
+  await feeding.save((err) => {
+    if (err) {
+      return formatResponse(false, values, err);
+    } else {
+      return formatResponse(true, values);
+    }
+  });
 }
 
 module.exports = { createFeeding };

@@ -31,7 +31,7 @@ export const formSubmit = (formValues) => {
   console.log('here we are');
   return (dispatch) => {
     dispatch(formSubmitRequest());
-    console.log('about to post', formValues);
+    // console.log('about to post', formValues);
     // should add some authorization token here
     axios.post('/feeding', formValues);
   };
