@@ -16,11 +16,11 @@ export const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FORM_SUBMIT:
-      return { ...state, submitting: true };
+      return { ...state, values: action.payload.values, submitting: true };
     case FORM_SUBMIT_SUCCESS:
       return { ...INITIAL_STATE, submitting: false, success: true };
     case FORM_SUBMIT_FAILURE:
-      return { ...state, submitting: false, error: action.payload.error };
+      return { ...state, success: false, submitting: false, error: action.payload.error };
     case FORM_RESET:
       return INITIAL_STATE;
     default:

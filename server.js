@@ -18,6 +18,5 @@ app.get('/ping', function (req, res) {
 
 app.post('/feeding', async (req, res) => {
   const response = await createFeeding(req.body);
-  console.log('respo', response);
   res.send(response);
 });

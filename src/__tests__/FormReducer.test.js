@@ -19,11 +19,14 @@ describe('form reducer', () => {
   });
 
   it('should return state with submitting set to true', () => {
+    const values = { a: 'a' };
     expect(FormReducer(undefined, {
-      type: types.FORM_SUBMIT
+      type: types.FORM_SUBMIT,
+      payload: { values: values }
     })).toEqual({
       ...initialState,
-      submitting: true
+      submitting: true,
+      values
     })
   });
 

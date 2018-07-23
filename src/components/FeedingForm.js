@@ -16,13 +16,11 @@ class FeedingForm extends React.Component {
     }
   }
 
-  render() {
+  renderForm() {
     return (
       <Formik
         initialValues={ INITIAL_VALUES }
         onSubmit={(values, actions) => {
-          // trigger a form submit action
-          console.log('values', values)
           this.props.formSubmit(values);
         }}
         validationSchema={validationSchema}
@@ -41,6 +39,18 @@ class FeedingForm extends React.Component {
         )}
       />
     );
+  }
+
+  render() {
+    let content;
+    if (this.props.success) {
+      content = (<div>Succes</div>);
+    } else if (this.props.error) {
+      content = (<div>Failure</div>);
+    } else {
+      content = this.renderForm();
+    }
+    return content;
   }
 }
 
