@@ -1,9 +1,11 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { connect } from 'react-redux';
 import CustomField from './CustomField';
 import TimePicker from './TimePicker.js'
 import { INITIAL_VALUES } from '../constants/FormConstants';
+import { formSubmit } from '../redux/actions/FormActions';
 
 class FeedingForm extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class FeedingForm extends React.Component {
         onSubmit={(values, actions) => {
           // trigger a form submit action
           console.log('values', values)
+          this.props.formSubmit(values);
         }}
         validationSchema={validationSchema}
         render={({ errors, handleChange, touched, isSubmitting }) => (
@@ -36,7 +39,6 @@ class FeedingForm extends React.Component {
             </button>
           </Form>
         )}
-        
       />
     );
   }
@@ -61,4 +63,8 @@ var validationSchema = yup.object().shape({
     .moreThan(0)
 });
 
-export default FeedingForm;
+const mapStateToProps = state => {
+  return state.form;
+};
+
+export default connect(mapStateToProps, {formSubmit})(FeedingForm);
