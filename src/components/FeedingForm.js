@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import CustomField from './CustomField';
 import TimePicker from './TimePicker.js'
 import { INITIAL_VALUES } from '../constants/FormConstants';
-import { formSubmit } from '../redux/actions/FormActions';
+import { formSubmit, formReset } from '../redux/actions/FormActions';
+import Success from './Success';
+import Failure from './Failure';
 
 class FeedingForm extends React.Component {
   constructor(props) {
@@ -44,9 +46,9 @@ class FeedingForm extends React.Component {
   render() {
     let content;
     if (this.props.success) {
-      content = (<div>Succes</div>);
+      content = <Success buttonHandler={() => { this.props.formReset() }}/>
     } else if (this.props.error) {
-      content = (<div>Failure</div>);
+      content = <Failure buttonHandler={() => { this.props.formReset() }} error={this.props.error} />
     } else {
       content = this.renderForm();
     }
@@ -77,4 +79,4 @@ const mapStateToProps = state => {
   return state.form;
 };
 
-export default connect(mapStateToProps, {formSubmit})(FeedingForm);
+export default connect(mapStateToProps, {formSubmit, formReset})(FeedingForm);

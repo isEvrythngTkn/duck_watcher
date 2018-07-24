@@ -3,7 +3,7 @@ import {
   FORM_SUBMIT,
   FORM_SUBMIT_SUCCESS,
   FORM_SUBMIT_FAILURE,
-  //FORM_RESET
+  FORM_RESET
 } from '../../constants/ActionTypes';
 
 export function formSubmitRequest(values) {
@@ -24,6 +24,13 @@ export function formSubmitFailure(error) {
   return {
     type: FORM_SUBMIT_FAILURE,
     payload: {error}
+  }
+}
+
+export function formReset() {
+  return {
+    type: FORM_RESET,
+    payload: {}
   }
 }
 
