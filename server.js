@@ -6,7 +6,11 @@ var { db } = require('./src/server/db');
 const { createFeeding } = require('./src/server/apis/feedings');
 const { formatResponse } = require('./src/server/apis/utils');
 
-app.use(express.static(path.join(__dirname, 'build')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+  app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
