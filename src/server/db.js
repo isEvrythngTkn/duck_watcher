@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var { dbuser, dbpassword, dbURL } = require('../config');
-console.log('db configs', dbuser, dbpassword, dbURL);
 
 mongoose.connect(`mongodb://${dbuser}:${dbpassword}@${dbURL}`);
 
