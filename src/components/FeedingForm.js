@@ -25,6 +25,8 @@ class FeedingForm extends React.Component {
         onSubmit={(values, actions) => {
           this.props.formSubmit(values);
         }}
+        validateOnBlur={false}
+        validateOnChange={false}
         validationSchema={validationSchema}
         render={({ errors, handleChange, touched, isSubmitting }) => (
           <Form >
