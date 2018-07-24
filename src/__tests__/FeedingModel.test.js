@@ -1,6 +1,6 @@
 import moment from 'moment';
 import expect from 'expect';
-import { Feeding } from '../server/models/Feeding';
+import { Feeding } from '../../server/models/Feeding';
 
 let time = moment.now();
 let food = 'bread';

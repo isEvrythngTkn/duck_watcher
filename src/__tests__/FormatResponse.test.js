@@ -1,4 +1,4 @@
-var { formatResponse } = require('../server/apis/utils');
+var { formatResponse } = require('../../server/apis/utils');
 
 describe("format response", () => {
   it("formats a successful request response", () => {
