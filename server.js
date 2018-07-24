@@ -10,7 +10,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.listen(process.env.PORT || 8080);
+app.get("*", (req, res) => {  
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+app.listen(process.env.PORT || 5000);
 
 app.get('/ping', function (req, res) {
  return res.send('pong');
