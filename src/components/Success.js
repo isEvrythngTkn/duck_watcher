@@ -12,7 +12,7 @@ export default class FormSubmitSuccess extends React.Component {
         </p>
         <hr className="my-4" />
         <p>Want to try again?</p>
-        <button className="btn btn-primary btn-lg" onClick={this.props.buttonHandler} role="button">Submit again</button>
+        <button className="btn btn-primary btn-lg" onClick={this.props.buttonHandler}>Submit again</button>
       </div>
     )
   }

@@ -14,7 +14,7 @@ export default class FormSubmitFailure extends React.Component {
         </p>
         <hr className="my-4" />
         <p>Try again?</p>
-        <button className="btn btn-primary btn-lg" onClick={this.props.buttonHandler} role="button">Submit another feeding</button>
+        <button className="btn btn-primary btn-lg" onClick={this.props.buttonHandler}>Submit another feeding</button>
       </div>
     )
   }

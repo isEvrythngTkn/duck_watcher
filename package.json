@@ -2,9 +2,10 @@
   "name": "duck_watcher",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
+    "concurrently": "^3.6.1",
     "expect": "^23.4.0",
     "express": "^4.16.3",
     "formik": "^1.0.1",
@@ -20,9 +21,8 @@
     "yup": "^0.26.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"node server.js\"",
     "build": "react-scripts build",
-    "deploy": "aws s3 sync build/ s3://duckwatcher",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
